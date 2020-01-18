@@ -906,6 +906,64 @@ class Processor(object):
                             except Exception as e:
                                 print "[!] Exception caught: {}".format(e)
 
+                    elif self.input_list[0] == "whois":
+                        from pythem.modules.who_is import BannerAndWhoIs
+                        self.whois = BannerAndWhoIs()
+                        try:
+                            _Choice = (raw_input
+                             (
+                               "1. Whois Single fuction.\n"
+                               "2. Whois Multiple function.\n"
+                               "3. Banner Grabbering.\n"
+                               "4. All of them(1 + 3).\n"
+                               "5. Exit\n"
+                              )
+                            )
+                            while True:
+
+                                if _Choice == "1":  # Single WhoIS
+                                    _Mydata = raw_input("enter: ")
+                                    Results1 = self.whois.Get_Single_WhoIs(_Mydata)
+                                    print(Results1)
+                                    break
+
+                                elif _Choice == "2":  # Multiple WhoIS
+                                    print("Please select your .txt file")
+                                    print("ex) /home/unknown/test.txt")
+                                    _Myfile = raw_input("")
+                                    Results2 = self.whois.Get_Multiple_Whois(_Myfile)
+                                    print(Results2)
+                                    break
+
+                                elif _Choice == "3":  # Banner Grabbing
+                                    Host = raw_input("Please enter your Target_host: ")
+                                    Port = input("Please enter your Target_port: ")
+                                    Results3 = self.whois.Banner_Grabbing(Host, Port)
+                                    print(Results3)
+                                    break
+
+                                elif _Choice == "4":  # Above of 1 + 3
+                                    _Mydata = raw_input("enter: ")
+                                    Results4 = self.whois.Get_Single_WhoIs(_Mydata)
+                                    print(Results4)  # From Single WhoIs Function to show results
+
+                                    print("*******************************************")
+
+                                    Host2 = raw_input("Please enter your Target_host: ")
+                                    Port2 = input("Please enter your Target_port: ")
+                                    Results5 = self.whois.Banner_Grabbing(Host2, Port2)
+                                    print(Results5)  # From Banner_Grabbing Function to show results
+                                    break
+
+                                elif _Choice == "5":  # Exit
+                                    print("Good Bye!")
+                                    os.system('clear')
+                                    break
+
+                        except Exception:
+                            print("Wrong something")
+
+
                     elif self.input_list[0] == "encode":
                         try:
                             if self.input_list[1] == "help":
