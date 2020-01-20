@@ -906,6 +906,20 @@ class Processor(object):
                             except Exception as e:
                                 print "[!] Exception caught: {}".format(e)
 
+                    elif self.input_list[0] == "shodan":
+                        try:
+                            from pythem.modules.MyShodan import Shodan
+                            self.shodan = Shodan()
+                            try:
+                                while True:
+                                    self.shodan.Setting_Shodan_API()
+                                    self.shodan.Setting_Target()
+                                break
+                            except Exception:
+                                print("Wrong something on Setting or Target")
+                        except Exception:
+                            print("Error Shoan")
+
                     elif self.input_list[0] == "whois":
                         from pythem.modules.who_is import BannerAndWhoIs
                         self.whois = BannerAndWhoIs()
@@ -962,7 +976,6 @@ class Processor(object):
 
                         except Exception:
                             print("Wrong something")
-
 
                     elif self.input_list[0] == "encode":
                         try:
