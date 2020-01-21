@@ -908,13 +908,13 @@ class Processor(object):
 
                     elif self.input_list[0] == "shodan":
                         try:
-                            from pythem.modules.MyShodan import Shodan
-                            self.shodan = Shodan()
+                            from pythem.modules.shodan_ import MyShodan
+                            self.shodan = MyShodan()
                             try:
                                 while True:
                                     self.shodan.Setting_Shodan_API()
                                     self.shodan.Setting_Target()
-                                break
+                                    break
                             except Exception:
                                 print("Wrong something on Setting or Target")
                         except Exception:
