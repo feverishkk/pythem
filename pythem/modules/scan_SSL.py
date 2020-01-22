@@ -45,9 +45,4 @@ def Scan_SSL(hostname):
             pass
 
     except:
-        print ("SSL is not Present on Target URL...This vulnerable web site")
-
-
-if __name__ == '__main__':
-    value = raw_input("target url: ")
-    Scan_SSL(value)
+        print ("SSL is not Present on Target URL...This is vulnerable web site")

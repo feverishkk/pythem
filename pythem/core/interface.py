@@ -906,6 +906,18 @@ class Processor(object):
                             except Exception as e:
                                 print "[!] Exception caught: {}".format(e)
 
+                    elif self.input_list[0] == "ssl":
+                        try:
+                            from pythem.modules.scan_SSL import Scan_SSL
+                            try:
+                                target = raw_input("Enter your target URL: ")
+                                Scan_SSL(target)
+                            except Exception:
+                                print("Error")
+
+                        except Exception:
+                            print("Input Error!")
+
                     elif self.input_list[0] == "shodan":
                         try:
                             from pythem.modules.shodan_ import MyShodan
