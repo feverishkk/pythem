@@ -923,53 +923,47 @@ class Processor(object):
                     elif self.input_list[0] == "whois":
                         try:
                             from pythem.modules.whois import BannerAndWhoIs
+
                             self.whois = BannerAndWhoIs()
 
-                            try:
-                                _Choice = (raw_input
-                                        (
-                                        "1. Whois Single fuction.\n"                 
-                                        "2. Banner Grabbering.\n"
-                                        "3. All of them(1 + 2).\n"
-                                        "4. Exit\n"
-                                    )
-                                            )
+                            Selection = (raw_input(
+                                                   "1. Whois.\n"
+                                                   "2. Banner Grabbering.\n"
+                                                   "3. All of them(1 + 2).\n"
+                                                   "4. Exit\n"))
 
-                                while True:
-                                    if _Choice == "1":  # Single WhoIS
-                                        _Mydata = raw_input("enter: ")
-                                        Results1 = self.whois.Get_Single_WhoIs(_Mydata)
-                                        print(Results1)
-                                        break
+                            while True:
+                                if Selection == "1":
+                                    enter = raw_input("enter: ")
+                                    Results1 = self.whois.Get_WhoIs(enter)
+                                    print(Results1)
+                                    break
 
-                                    elif _Choice == "2":  # Banner Grabbing
-                                        Host = raw_input("Please enter your Target_host: ")
-                                        Port = input("Please enter your Target_port: ")
-                                        Results3 = self.whois.Banner_Grabbing(Host, Port)
-                                        print(Results3)
-                                        break
+                                elif Selection == "2":
+                                    host = raw_input("Please enter your Target_host: ")
+                                    port = input("Please enter your Target_port: ")
+                                    Results3 = self.whois.Banner_Grabbing(host, port)
+                                    print(Results3)
+                                    break
 
-                                    elif _Choice == "3":  # Above of 1 + 2
-                                        _Mydata = raw_input("enter: ")
-                                        Results4 = self.whois.Get_Single_WhoIs(_Mydata)
-                                        print(Results4)  # From Single WhoIs Function to show results
-                                        print("*******************************************")
-                                        Host2 = raw_input("Please enter your Target_host: ")
-                                        Port2 = input("Please enter your Target_port: ")
-                                        Results5 = self.whois.Banner_Grabbing(Host2, Port2)
-                                        print(Results5)  # From Banner_Grabbing Function to show results
-                                        break
+                                elif Selection == "3":
+                                    _MyURL = raw_input("enter: ")
+                                    Results4 = self.whois.Get_WhoIs(_MyURL)
+                                    print(Results4)  # From Single WhoIs Function to show results
+                                    print("*******************************************")
+                                    Host2 = raw_input("Please enter your Target_host: ")
+                                    Port2 = input("Please enter your Target_port: ")
+                                    Results5 = self.whois.Banner_Grabbing(Host2, Port2)
+                                    print(Results5)  # From Banner_Grabbing Function to show results
+                                    break
 
-                                    elif _Choice == "4":  # Exit
-                                        print("Good Bye!")
-                                        os.system('clear')
-                                        break
-                            except Exception:
-                                print("Wrong something")
+                                elif Selection == "4":  # Exit
+                                    print("Good Bye!")
+                                    os.system('clear')
+                                    break
 
                         except Exception:
-                             print("Wrong...")
-
+                            print("Wrong...")
 
                     elif self.input_list[0] == "encode":
                         try:
