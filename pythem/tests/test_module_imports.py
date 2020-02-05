@@ -23,6 +23,12 @@ class TestModuleImports(unittest.TestCase):
         from pythem.modules.hashcracker import HashCracker
     def test_pforensic_import(self):
         from pythem.modules.pforensic import PcapReader
+    def test_whois_import(self):
+        from pythem.modules.whois import BannerAndWhoIs
+    def test_shodan__import(self):
+        from pythem.modules.shodan_ import MyShodan
+    def test_scan_SSL_import(self):
+        from pythem.modules.scan_SSL import Scan_SSL
     def test_scanner_import(self):
         from pythem.modules.scanner import Scanner
     def test_sniffer_import(self):
@@ -52,6 +58,7 @@ class TestModuleImports(unittest.TestCase):
         from pythem.modules.utils import print_help
     def test_interface_import(self):
         from pythem.core import interface
+
 
 if __name__ == "__main__":
     unittest.main()
